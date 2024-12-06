@@ -1,0 +1,45 @@
+#introduction {
+    color: black;
+}
+
+.terminal {
+    height: 400px;
+    width: 600px;
+    resize: none;
+}
+
+#previewWindow {
+    height: 50px;
+    width: 600px;
+    resize: none;
+}
+
+.rxtxField {
+    height: 100%;
+    width: 90%;
+    display: inline;
+}
+
+.row {
+    width: 1300px;
+    padding-bottom: 10px;
+}
+
+#eolLabel {
+    padding-left: 10px;
+}
+
+.terminalColumn {
+    float: left;
+    width: 650px;
+    height: 600px;
+}
+  
+.row#terminalRow {
+    display: table;
+    height: 650px;
+}
+
+#contact {
+    padding-top: 15px;
+}
