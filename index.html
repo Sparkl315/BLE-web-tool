@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link href="styles/style.css" rel="stylesheet" />
+        <title>BLETool</title>
+    </head>
+    <body>
+        
+        <h1>BLE Connector - BIN/HEX/ASCII</h1>
+
+        <p id="introduction">
+            A Testing Tool for BLE connection with Binary/Hexcidecimal/ASCII Encode/Decode.
+        </p>
+
+        <div class="row">
+            <fieldset class="optionField">
+
+                <legend> BLE Options </legend>
+
+                <div id="optionDiv" class="bleOption">
+                    <input type="checkbox" id="allDevices" name="allDevices" checked />
+                    <label for="allDevices" id="allDevicesLabel">All Devices</label>
+                </div>
+
+                <div>
+                    <button id="scan" name="scan"> Scan BLE Devices </button>
+                    <button id="connect" name="connect"> Connect to BLE Device </button>
+                    <button id="disconnect" name="disconnect"> Disconnect BLE Device</button>
+                </div>
+
+            </fieldset>
+        </div>
+
+        <div id="terminalRow" class="row">
+            <div class="terminalColumn">
+                <fieldset class="rxtxField">
+
+                    <legend> BLE Receive </legend>
+
+                    <div id="rxDiv" class="optionDiv">
+                        <input type="checkbox" id="rxHex" name="rxHex" class="rxOption" onclick="updateCheckbox(this)" />
+                        <label for="hex" id="hexLabel" class="rxOption">HEX</label>
+
+                        <input type="checkbox" id="rxBin" name="rxBin" class="rxOption" onclick="updateCheckbox(this)" />
+                        <label for="hex" id="hexLabel" class="rxOption">BIN</label>
+
+                        <input type="checkbox" id="rxAscii" name="rxAscii" class="rxOption" onclick="updateCheckbox(this)" checked/>
+                        <label for="hex" id="hexLabel" class="rxOption">ASCII</label>
+
+                    </div>
+
+                    <div>
+                        <textarea 
+                            id="rxTerminal"
+                            class="terminal"
+                            readonly
+                            placeholder="This is the terminal for BLE Received Data."></textarea>
+                    </div>
+                
+                </fieldset>
+            </div>
+
+            <div class="terminalColumn">
+                <fieldset class="rxtxField">
+
+                    <legend> BLE Transmit </legend>
+
+                    <div id="txDiv" class="optionDiv">
+                        <input type="checkbox" id="txHex" name="txHex" class="txOption" onclick="updateCheckbox(this)" />
+                        <label for="hex" id="hexLabel" class="txOption">HEX</label>
+
+                        <input type="checkbox" id="txBin" name="txBin" class="txOption" onclick="updateCheckbox(this)" />
+                        <label for="hex" id="hexLabel" class="txOption">BIN</label>
+
+                        <input type="checkbox" id="txAscii" name="txAscii" class="txOption" onclick="updateCheckbox(this)" checked />
+                        <label for="hex" id="hexLabel" class="txOption">ASCII</label>
+                        
+                        <label for="eolSelect" id="eolLabel" class="txSelect">End Of Line:</label>
+                        <select id="eolSelect" name="eolSelect" class="txSelect" onchange="updatePreview()">
+                            <option value="\r\n">CR+LF (\r\n)</option>
+                            <option value="\r">CR (\r)</option>
+                            <option value="\n">LF (\n)</option>
+                            <option value=''>None</option>
+                        </select>
+
+                    </div>
+
+                    <div>
+                        <textarea 
+                            id="txTerminal"
+                            class="terminal"
+                            placeholder="This is the terminal for BLE Transmit Data."
+                            onchange="updatePreview()"></textarea>
+                    </div>
+
+                    <div>
+                        <label id="previewLabel">Preview:</label>
+                        <textarea id="previewWindow" readonly></textarea>
+                        <button id="send" name="send">Send</button>
+                    </div>
+                
+                </fieldset>
+            </div>
+        </div>
+
+        <div id="contact" class="row">
+            <a href="https://github.com/Sparkl315"> GitHub - ahopy</a>
+        </div>
+
+        <script src="scripts/connect.js"></script>
+    </body>
+</html>
